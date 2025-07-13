@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ürünler</title>
+</head>
+<body>
+    <h2>Ürün Listesi</h2>
+    <form action="/urun-ekle" method="post">
+        <input type="text" name="ad" placeholder="Ürün adı" required />
+        <input type="text" name="numara_araligi" placeholder="Numara aralığı" required />
+        <input type="number" name="stok" placeholder="Stok adedi" required />
+        <input type="text" name="varyant" placeholder="Varyant (renk/model)" required />
+        <button type="submit">Ekle</button>
+    </form>
+    <hr>
+    <ul>
+    {% for urun in urunler %}
+        <li>{{ urun.ad }} | Numara: {{ urun.numara_araligi }} | Stok: {{ urun.stok }} | Varyant: {{ urun.varyant }}</li>
+    {% endfor %}
+    </ul>
+    <br><a href="/">Ana Sayfa</a>
+</body>
+</html>
