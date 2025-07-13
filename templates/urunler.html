@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ürünler</title>
+</head>
+<body>
+    <h1>Ürün Listesi</h1>
+    <ul>
+        {% for urun in urunler %}
+            <li>{{ urun.ad }} - {{ urun.stok }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
