@@ -32,3 +32,6 @@ async def urun_ekle(
         "varyant": varyant
     })
     return RedirectResponse(url="/urunler", status_code=303)
+@router.get("/urunler/yeni", response_class=HTMLResponse)
+async def yeni_urun_formu(request: Request):
+    return templates.TemplateResponse("urunler.html", {"request": request})
