@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopify Ürünleri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .urun {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .urun img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopify Ürünleri</h1>
+    {% if urunler %}
+        {% for urun in urunler %}
+            <div class="urun">
+                <h2>{{ urun.title }}</h2>
+                {% if urun.image %}
+                    <img src="{{ urun.image.src }}" alt="{{ urun.title }}">
+                {% endif %}
+                <p>Fiyatlar:</p>
+                <ul>
+                    {% for variant in urun.variants %}
+                        <li>{{ variant.title }} - {{ variant.price }} {{ variant.currency or "₺" }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Henüz ürün bulunamadı.</p>
+    {% endif %}
+</body>
+</html>
